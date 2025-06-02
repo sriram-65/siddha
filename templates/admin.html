@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Page</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./static/style.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+    <div class="logo">🛡️ Admin</div>
+    <nav class="nav-links">
+      <a href="/doc/admin">Appointments</a>
+      <a href="/doc/admin/meassage">Messages</a>
+      <a href="/doc/admin/records">Records</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="app">
+         <h2 class="text-center text-muted mt-3">Appointment Details total : {{c}}</h2>
+        {% if appint%}
+        {%for i in appint%}
+        
+
+        <div class="appointment-card">
+        
+        <p><strong>Name:</strong> {{ i.full_name }}</p>
+        <p><strong>Phone Number:</strong> {{ i.number }}</p>
+        <p><strong>Gender:</strong> {{ i.select_gender }}</p>
+        <p><strong>Date of Birth:</strong> {{ i.dob }}</p>
+        <p><strong>Appointment Date:</strong> {{ i.app }}</p>
+        <p><strong>Address:</strong> {{ i.addresh }}</p>
+
+
+        <form action="{{url_for('Mark_store' , p_id =i._id)}}" method="POST" onsubmit="return confirm('Want to Delete this ?')">
+          <button class="btn btn-dark"> Mark As Not Completed </button>
+        </form>
+          <br>
+          <br>
+        
+      </div>
+
+            
+
+        </div>
+          
+
+          
+        
+        {%endfor%}
+        {%endif%}
+    </section>
+  </main>
+
+  <footer>
+    <p class="text-center text-muted">Build With <a href="https://hmi-proj.vercel.app">HMI</a>
+    </p>
+  </footer>
+</body>
+</html>
+
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2d3e50;
+  color: white;
+  padding: 15px 30px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.nav-links a {
+  color: white;
+  margin-left: 25px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-links a:hover {
+  color: #00d1b2;
+}
+
+.container{
+        margin: 40px auto;
+      padding: 30px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgb(182, 174, 174);
+}
+
+.appointment-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 25px;
+  max-width: 500px;
+  margin: 30px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.appointment-card h2 {
+  margin-bottom: 20px;
+  color: #2d3e50;
+  font-size: 24px;
+  text-align: center;
+}
+
+.appointment-card p {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #444;
+}
+
+.appointment-card strong {
+  color: #1a73e8;
+}
+
+</style>
+<script>
+  document.querySelector("button").onclick = function(){
+    document.querySelector("button").innerHTML = "Loading...."
+    document.querySelector("button").disabled
+  }
+</script>
