@@ -50,26 +50,9 @@ def appointment():
    
         Client_data_Appointment.insert_one(data)
 
-
-        filename = f"{full_name.replace(' ', '_')}_{datetime.now().strftime('%Y%m%d%H%M%S')}.pdf"
-        filepath = os.path.join("static", "pdfs", filename)
-        os.makedirs(os.path.dirname(filepath), exist_ok=True)
-
-        c = canvas.Canvas(filepath)
-        c.setFont("Helvetica", 34)
-        c.drawString(100, 800, "Appointment Confirmation")
-        c.setFont("Helvetica", 12)
-        c.drawString(100, 770, f"Name: {full_name}")
-        c.drawString(100, 750, f"Phone Number: {number}")
-        c.drawString(100, 730, f"Gender: {select_gender}")
-        c.drawString(100, 710, f"Date of Birth: {dob}")
-        c.drawString(100, 690, f"Appointment Date: {app_date}")
-        c.drawString(100, 670, f"Address: {addresh}")
-        c.save()
-        
         session["appointed"] = full_name
         session["date"] = app_date 
-        return redirect(url_for("appointment_success", filename=filename))
+        return redirect(url_for("appointment_success"))
 
     except Exception as e:
         return f"Error: {str(e)}", 500
@@ -77,8 +60,7 @@ def appointment():
 
 @app.route("/appointment-success")
 def appointment_success():
-    filename = request.args.get("filename")
-    return render_template("suess.html", filename=filename)
+    return render_template("suess.html", )
 
 @app.route("/clear")
 def Cls():
