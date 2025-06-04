@@ -456,6 +456,7 @@ bar.onclick = function(){
     if(days==0){
         fetch("/clear").then(res=>res.json()).then(data=>{
           console.log(data)
+            
           window.location.reload()
         })
     }
