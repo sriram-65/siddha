@@ -173,6 +173,10 @@ video {
 
 }
 
+video h2{
+    margin-top:2em;
+}
+
 #banner {
   background: linear-gradient(135deg, #667eea, #764ba2);
   padding: 60px 0;
