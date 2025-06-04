@@ -37,8 +37,8 @@
         <p><strong>Address:</strong> {{ i.addresh }}</p>
 
 
-        <form action="{{url_for('Mark_store' , p_id =i._id)}}" method="POST" onsubmit="return confirm('Want to Delete this ?')">
-          <button class="btn btn-dark"> Mark As Not Completed </button>
+        <form action="{{url_for('Mark_store' , p_id =i._id)}}" method="POST" onsubmit="return confirm('Do Want to Mark Completed This  ?')">
+          <button class="btn btn-success"> Mark As Completed successfully </button>
         </form>
           <br>
           <br>
