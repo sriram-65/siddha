@@ -1,7 +1,7 @@
 self.addEventListener("install" , (e)=>{
     e.waitUntil(
         caches.open("offile-cache").then((cache)=>{
-            return cache.addAll(["/templates/offile.html"])
+            return cache.addAll(["/offile.html"])
         })
     )
 })
