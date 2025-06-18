@@ -134,5 +134,9 @@ def Delete_rec(p_id):
 def sw():
     return send_from_directory("." , "sw.js")
 
+@app.route('/offile.html')
+def offline_page():
+    return send_from_directory('.', 'offile.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
