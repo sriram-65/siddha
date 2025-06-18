@@ -130,7 +130,7 @@ def Delete_rec(p_id):
     flash("Message deleted successfully!", "success")
     return redirect("/doc/admin/records")  
 
-@app.route("/sw")
+@app.route("/sw.js")
 def sw():
     return send_from_directory("." , "sw.js")
 
