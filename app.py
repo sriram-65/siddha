@@ -1,4 +1,4 @@
-from flask import Flask , redirect , render_template , request , url_for , session , jsonify , flash
+from flask import Flask , redirect , render_template , request , url_for , session , jsonify , flash , send_from_directory
 from pymongo import MongoClient 
 from bson.objectid import ObjectId
 from reportlab.pdfgen import canvas
@@ -130,6 +130,9 @@ def Delete_rec(p_id):
     flash("Message deleted successfully!", "success")
     return redirect("/doc/admin/records")  
 
+@app.route("/sw")
+def sw():
+    return send_from_directory("." , "sw.js")
 
 if __name__ == "__main__":
     app.run(debug=True)
