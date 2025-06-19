@@ -138,6 +138,10 @@ nav .logo img{
   opacity: 0;
 }
 
+#treatments{
+    margin-top:3em;
+}
+
 @keyframes fadeSlide {
   0% {
     transform: translateY(20px);
