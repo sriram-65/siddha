@@ -274,6 +274,10 @@ responsive */
      margin-top: 5em;
     
 }
+
+    .learn{
+        margin-top:8px;
+    }
   
     #home img{
         display: none;
